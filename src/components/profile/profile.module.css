@@ -1,0 +1,156 @@
+.main {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  min-height: 100vh;
+}
+
+.title {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 3rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fb1;
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  border-radius: 0.2rem;
+  z-index: -1;
+}
+
+@media (max-width: 400px) {
+  .title {
+    font-size: 2rem;
+  }
+
+  .title::after {
+    width: 1rem;
+    height: 1rem;
+  }
+}
+
+.flexCenter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-sizing: border-box;
+}
+
+.navLink {
+  background: #eee;
+  color: #111;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.navLink:global(.active) {
+  background: #fff;
+  box-shadow: 0 0 0 3px #fea;
+  border-color: #fb1;
+  color: #fb1;
+}
+
+.navLink:global(.active) > svg > * {
+  fill: #fb1 !important;
+}
+
+.menuMobile {
+  background: #eee;
+  border-radius: 0.2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  transition: 0.1s;
+  cursor: pointer;
+}
+
+.menuMobile span {
+  width: 20px;
+  color: #111;
+  display: block;
+  border-top: 2px solid currentColor;
+}
+
+.menuMobile span:after,
+.menuMobile span::before {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: currentColor;
+  margin: 5px 0;
+  position: relative;
+  transition: transform 0.4s;
+}
+
+.menuMobile span::before {
+  margin-bottom: 0px;
+}
+
+.menu {
+  display: flex;
+}
+
+@media (max-width: 650px) {
+  .menu {
+    display: block;
+    position: absolute;
+    top: 150px;
+    right: 0;
+    padding: 0 1rem;
+    background: #fff;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 20%);
+    border-radius: 0.2rem;
+    transform: translateX(-10px);
+    width: 50%;
+    min-width: 200px;
+    z-index: 1000000;
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 0.4s, visibility 0.6s;
+  }
+
+  .main:global(.menuAtivo) .menu {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .main:global(.menuAtivo) .menuMobile span {
+    border-top: none;
+  }
+
+  .main:global(.menuAtivo) .menuMobile span:after {
+    transform: rotate(45deg);
+    top: -3px;
+  }
+
+  .main:global(.menuAtivo) .menuMobile span::before {
+    transform: rotate(-45deg);
+    top: 3px;
+  }
+
+  .navLink {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}

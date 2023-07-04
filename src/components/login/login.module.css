@@ -1,0 +1,75 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.bigAuthImage {
+  z-index: 100;
+  height: 100%;
+}
+
+.campsArea {
+  display: grid;
+  align-items: center;
+  max-width: 500px;
+  margin-bottom: 2rem;
+}
+
+.h1 {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 3rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.h1:after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fb1;
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  border-radius: 0.2rem;
+  z-index: -1;
+}
+
+.perdeu {
+  display: inline-block;
+  color: #666;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  line-height: 1;
+}
+
+.error {
+  color: #f31;
+  font-size: 1rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 645px) {
+  .bigAuthImage {
+    display: none;
+  }
+
+  .main {
+    display: block;
+    padding: 0 2rem;
+  }
+
+  .h1 {
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.success {
+  color: rgb(68, 204, 17);
+  margin-bottom: 1rem;
+}

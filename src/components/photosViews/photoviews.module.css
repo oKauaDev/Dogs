@@ -1,0 +1,78 @@
+.main {
+  margin-top: 1rem;
+  min-height: 100vh;
+}
+
+.finishPages {
+  text-align: center;
+  color: rgb(136, 136, 136);
+  padding: 2rem 1rem;
+}
+
+.photoview {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.photoBig {
+  grid-column: 2/4;
+  grid-row: 1/3;
+}
+
+.photoBig > img {
+  width: 100%;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper:hover .containerViews {
+  visibility: visible;
+  opacity: 1;
+}
+
+.containerViews {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity 0.4s;
+}
+
+.containerViews span {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.containerViews span::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  display: block;
+  background: url(./../../assets/visualizacao.svg) no-repeat center center;
+}
+
+@media (max-width: 600px) {
+  .photoview {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .photoBig {
+    grid-column: initial;
+    grid-row: initial;
+  }
+}

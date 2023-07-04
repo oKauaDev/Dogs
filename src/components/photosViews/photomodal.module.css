@@ -1,0 +1,111 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 10000;
+}
+
+.modal {
+  width: 90%;
+  height: 95vh;
+  background: #fff;
+  display: grid;
+  gap: 32px;
+  border-radius: 5px;
+  grid-template-columns: 2fr 1fr;
+  max-width: 792px;
+}
+
+.title {
+  font-family: var(--type-second);
+  line-height: 1;
+  font-size: 3rem;
+  margin: 1rem 0;
+  position: relative;
+  z-index: 1;
+}
+
+.title::after {
+  content: "";
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #fb1;
+  position: absolute;
+  bottom: 5px;
+  left: -5px;
+  border-radius: 0.2rem;
+  z-index: -1;
+}
+
+.info {
+  padding: 1rem;
+}
+
+.image {
+  display: block;
+  grid-area: 1/1;
+  object-fit: cover;
+  max-width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 735px) {
+  .modal {
+    display: block;
+    overflow-y: scroll;
+    width: 80%;
+  }
+
+  .image {
+    height: 90%;
+  }
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.name {
+  text-decoration: none;
+  color: #333;
+}
+
+.containerComments {
+  margin-top: 2rem;
+}
+
+.comment {
+  margin: 1rem 0;
+}
+
+.comment span {
+  font-weight: 600;
+}
+
+.addComment {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.addComment > svg {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+.addComment > svg:hover > * {
+  fill: #fb1;
+}
